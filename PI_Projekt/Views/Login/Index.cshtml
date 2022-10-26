@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+
+}
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <title></title>
+</head>
+
+<body>
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <div class="container" style="padding-top:5%;margin-left:25%;margin-right:25%">
+            <div class="mb-3">
+
+                @Html.Label( "Username", "Username")
+                @Html.TextBox( "Username",  "",  new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+
+                @Html.Label( "Password", "Password:")
+                @Html.TextBox( "Password",  "", new { @class = "form-control", type = "password" })
+                @Html.Label( "error",  "Username or Password incorrect or empty", new { Style = ViewBag.Style })
+            </div>
+            <div id="SignUp" class="form-text">
+                Dont have an account? @Html.ActionLink("Register here", "Register", "Index")
+
+            </div>
+
+            <Button ID="SubmitBtn" runat="server" class="btn btn-primary" type="submit">login</Button>
+        </div>
+
+    }
+</body>
+</html>
+
+
